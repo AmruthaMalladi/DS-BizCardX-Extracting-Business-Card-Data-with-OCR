@@ -1,6 +1,4 @@
-# =====================================================   /   /   Import library   /   /   ================================================= #
 
-# [Scanning library]
 import easyocr  # (Optical Character Recognition)
 import numpy as np
 from PIL import Image, ImageDraw
@@ -19,7 +17,7 @@ from sqlalchemy import create_engine, inspect
 # [Dashboard library]
 import streamlit as st
 
-# ===================================================   /   /   Dash Board   /   /   ======================================================== #
+#dashboard#
 
 # Configuring Streamlit GUI
 st.set_page_config(layout='wide')
@@ -30,7 +28,7 @@ st.title('Business Card Data Extraction')
 # Tabs
 tab1, tab2 = st.columns(["Data Extraction zone", "Data modification zone"])
 
-# ==========================================   /   /   Data Extraction and upload zone   /   /   ============================================== #
+# Data Extraction and upload zone  #
 
 with tab1:
     st.subheader('Data Extraction')
@@ -42,7 +40,7 @@ with tab1:
     # Note
     st.markdown('''File extension support: PNG, JPG, TIFF, File size limit: 2 Mb, Image dimension limit: 1500 pixels, Language: English.''')
 
-    # --------------------------------      /   Extraction process   /     ---------------------------------- #
+    # Extraction process#
 
     if import_image is not None:
         try:
@@ -71,7 +69,7 @@ with tab1:
         except:
             st.info("Error: Failed to process the image. Please try again with a different image.")
 
-    # -------------------------      /   Display the processed card with a yellow box   /     ---------------------- #
+    # Display the processed card with a yellow box #
 
         col1, col2 = st.columns(2)
 
@@ -94,7 +92,7 @@ with tab1:
             # Result image
             st.image(result_image, caption='Captured text')
 
-    # ----------------------------    /     Data processing and converted into a data frame   /   ------------------ #
+    # Data processing and converted into a data frame#
 
         with col2:
             # Initialize the data dictionary
